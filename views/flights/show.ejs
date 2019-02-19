@@ -1,0 +1,63 @@
+<%- include('../partial/header')%>
+<section id="show-page">
+    <h5>Airline: <span class="badge badge-secondary"><%= flight.airline %></span></h5>
+    <h5>flight Number: <span class="badge badge-secondary"><%= flight.flightNo %></span></h5>
+    <h5>Departure Date: <span class="badge badge-secondary"><%= flight.departs %></span></h5>
+    <h5>Airport: <span class="badge badge-secondary"><%= flight.airport %></span></h5>
+</section>
+<br><br>
+<h2>Add Destinations</h2>
+<form id="add-destination-form" method="POST" action="/flights/<%= flight._id %>/destinations">
+    <select name="airport" class="custom-select" id="inputGroupSelect04">
+        <option value="LAX">LAX</option>
+        <option value="AUS">AUS</option>
+        <option value="DAL">DAL</option>
+        <option value="SEA">SEA</option>
+    </select>
+    <div class="input-group mb-3">
+        <input type="datetime-local" class="form-control" name="arrival">
+        <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="submit">Add Destination</button>
+        </div>
+    </div>
+</form>
+<% if (flight.destinations.length) { %>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Destination</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% flight.destinations.forEach( function(d){ %>
+        <tr>
+            <td> <%= d.arrival %></td>
+            <td> <%= d.airport %></td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+<% } else { %>
+<h5>No Destinations Yet</h5>
+<% } %>
+<a href="/flights/<%=flight._id%>/tickets/new" class="badge badge-success">New Ticket</a>
+<table class="table table-striped">
+    <thead >
+        <tr>
+            <th scope="col">Seat</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%tickets.forEach(function(t){%>
+        <tr>
+            <td><%= t.seat%></td>
+            <td>$ <%= t.price%></td>
+        </tr>
+        <%})%>
+    </tbody>
+</table>
+</body>
+
+</html>

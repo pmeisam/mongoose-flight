@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Add Flight</title>
+</head>
+
+<body style="width: 600px; margin: 0 auto;">
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="/flights/new">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/flights">Flights</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#">Flight Details</a>
+        </li>
+    </ul>
+    <form action="/flights" method="POST">
+        <label>Airline</label>
+        <input placeholder="ex: American" class="form-control" type="text" name="airline">
+        <label>Flight Number</label>
+        <input placeholder="ex: 323" class="form-control" type="number" name="flightNo">
+        <label>Date and Time</label>
+        <input class="form-control" type="dateTime-local" name="departs">
+        <label>Airport</label>
+        <div class="input-group">
+            <select name="airport" class="custom-select">
+                <option value="SEA">SEA</option>
+                <option value="AUS">AUS</option>
+                <option value="DAL">DAL</option>
+                <option value="LAX">LAX</option>
+            </select>
+            <div class="input-group-append">
+                <button class="btn btn-outline-primary" type="submit">Add Flight</button>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>
