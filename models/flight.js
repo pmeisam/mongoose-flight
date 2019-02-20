@@ -9,6 +9,7 @@ var destinationSchema = new Schema({
     },
     arrival: {
         type: Date,
+        default: Date.now
     }
 });
 
@@ -24,7 +25,7 @@ var flightSchema = new Schema({
     },
     departs: {
         type: Date,
-        default: new Date()
+        default: Date.now
     },
     airport: {
         type: String,

@@ -43,17 +43,23 @@
 <% } %>
 <a href="/flights/<%=flight._id%>/tickets/new" class="badge badge-success">New Ticket</a>
 <table class="table table-striped">
-    <thead >
+    <thead>
         <tr>
             <th scope="col">Seat</th>
             <th scope="col">Price</th>
+            <th scope="col">Remove Ticket</th>
         </tr>
     </thead>
     <tbody>
-        <%tickets.forEach(function(t){%>
+        <%tickets.forEach(function(t, idx){%>
         <tr>
             <td><%= t.seat%></td>
             <td>$ <%= t.price%></td>
+            <td>
+                <form action="/flights/<%=flight._id%>/<%=t._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-outline-danger" type="submit">Delete</button>
+                </form>
+            </td>
         </tr>
         <%})%>
     </tbody>

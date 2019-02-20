@@ -1,7 +1,7 @@
 <%- include('../partial/header')%>
 <form action="/flights/<%=flight._id%>/tickets/new" method="POST">
     <label>Seat</label>
-    <input placeholder="ex: A6" pattern="[A-F][1-9]\d?" class="form-control" name="seat">
+    <input placeholder="A-F 1-9 ex:A9" pattern="[A-F][1-9]\d?" class="form-control" name="seat">
     <label>Price</label>
     
     

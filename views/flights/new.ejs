@@ -25,7 +25,11 @@
     </ul>
     <form action="/flights" method="POST">
         <label>Airline</label>
-        <input placeholder="ex: American" class="form-control" type="text" name="airline">
+        <select name="airline" class="custom-select">
+            <option value="Southwest">Southwest</option>
+            <option value="American">American</option>
+            <option value="United">United</option>
+        </select>
         <label>Flight Number</label>
         <input placeholder="ex: 323" class="form-control" type="number" name="flightNo">
         <label>Date and Time</label>
